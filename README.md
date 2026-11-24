@@ -10,7 +10,7 @@ The towns and cities of early American Jewry — the rabbanim who served them, t
 
 ## Adding to the site
 
-The easy way is the form editor at **/admin/** (https://earlyamericanrabbis.github.io/early-american-communities/admin/). Sign in with a GitHub access token (see the how-to), open **Communities**, and add or edit a city. See **[HOW-TO-ADD-CONTENT.md](HOW-TO-ADD-CONTENT.md)**.
+The easy way is the form editor at **/admin/** (https://earlyamericanrabbis.github.io/early-american-communities/admin/). Click **Sign In with GitHub**, open **Communities**, and add or edit a city. See **[HOW-TO-ADD-CONTENT.md](HOW-TO-ADD-CONTENT.md)**.
 
 ## How the repository is laid out
 

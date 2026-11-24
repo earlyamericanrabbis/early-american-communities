@@ -5,9 +5,8 @@ You never need a terminal or any programming. Everything is done in your web bro
 ## The easy way: the form editor
 
 1. Go to **https://earlyamericanrabbis.github.io/early-american-communities/admin/**
-2. Sign in with a GitHub **access token** (the editor asks for it the first time):
-   - If you already have a token for the Early American Rabbis editor, you can add this repository to it: on github.com go to **Settings → Developer settings → Personal access tokens → Fine-grained tokens**, open the token, and under **Repository access** add **early-american-communities**. Then paste the same token here.
-   - Or make a new one there: **Generate new token**, choose **Only select repositories → early-american-communities**, and under **Permissions → Contents** choose **Read and write**. Copy the token and paste it into the editor.
+2. Click **Sign In with GitHub**. If you're already signed in to github.com as **earlyamericanrabbis**, it lets you straight in.
+   - Backup, only if that doesn't work: click **Sign In Using Access Token** and paste a GitHub fine-grained token that includes this repository, with **Contents: Read and write**.
 3. Open **Communities**.
 
 ### Adding a city
