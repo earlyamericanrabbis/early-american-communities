@@ -5,6 +5,26 @@ hebrew_name: סויט באנד
 lat: 41.6764
 lon: -86.252
 published: true
+shuls:
+  - name: Congregation Sons of Israel
+    also_known_as: The Ballpark Synagogue
+    years: 1901 - 1990
+    address: 420 S. William Street in South Bend, Indiana
+    notes: |-
+      The Sons of Israel Synagogue, also known as B'Nai Yisrael Synagogue, is located in South Bend, Indiana.
+
+      The synangouge represents the rich Jewish history of the neighborhood and the City of South bend in built form. It was the first house of worship constructed by members of the Jewish community in South Bend and was at the heart of a once thriving Jewish community.
+
+      Though there were some early arrivals of Jews in Indiana, it was not until 1840 that the Jewish community began starting communal organizations. The earliest congregations were in Fort Wayne in 1848, Lafayette in 1849, and Evansville in 1853. Jewish people began settling in South Bend in the late 1840s and 1850s. By 1878, South Bend's Jewish population reached 125 people. The first religious organization, the Hebrew Orthodox congregation, was formed in 1887. It is this congregation that built the Sons of Israel Synagogue in 1901. By 1912, South Bend's Jewish community reached 1,200 people. This increase is attributed to the large immigration of Jews from Russia and Poland; they were apart of a larger wave of migration of Jews escaping persecution.
+
+      After years of declining attendance, the synagogue held its last services in the building in 1990 before being donated to the Indiana Landmarks Foundation. In 2005, the building was sold as a private residance, however, the city decided to use the building or land it stood on as part of renewal effort and purchased the building for $130,000. Plans to repurpose the building as a museum or move it to a new location fell through, and it stood neglected for several years. In 2012, Andrew Berlin, the owner of the South Bend Cubs baseball team, purchased the building and funded a $1 million dollar renovation. Today the building serves as the Cub's team gift shop.
+
+      The Sons of Israel Synagogue was listed on the National Register of Historic Places on June 25, 2013. It is located at 420 S. William Street in South Bend, Indiana.
+    images:
+      - image: /assets/uploads/ballpark.webp
+      - image: /assets/uploads/Photo373305o.jpg
+        caption: Steven Lotter, May 16, 2014
+    link: https://en.wikipedia.org/wiki/Ballpark_Synagogue
 rabbi_places:
   - South Bend
 ---
