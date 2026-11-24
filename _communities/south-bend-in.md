@@ -25,6 +25,22 @@ shuls:
       - image: /assets/uploads/Photo373305o.jpg
         caption: Steven Lotter, May 16, 2014
     link: https://en.wikipedia.org/wiki/Ballpark_Synagogue
+cemeteries:
+  - name: Rose Hill Cemetery
+    years: Founded 1859
+    address: 1616 Miami St, South Bend, IN 46613
+    notes: The oldest Jewish burial ground in South Bend, established in 1884 on Miami Street after relocating from an 1859 site. Associated with Temple Beth-El, it is open to the broader Jewish community (with preferential lot treatment for Temple Beth-El members) and permits burial of cremated remains as well as non-Jewish immediate family members alongside Jewish family.
+    images:
+      - image: /assets/uploads/CEM46609923_114555591117.webp
+    link: https://www.tbe-sb.org/rose-hill-cemetery/
+  - name: Hebrew Orthodox Cemetery
+    address: Calhoun St, Mishawaka, IN 46545
+    images:
+      - image: /assets/uploads/USA-04055_Sign.jpg
+      - image: /assets/uploads/CEM1981945_1438573281.jpg
+    documents:
+      - title: News Article - August 20, 1963
+        file: /assets/uploads/481462875_658489776715291_9217595906247072616_n.jpg
 rabbi_places:
   - South Bend
 ---
