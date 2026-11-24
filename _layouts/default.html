@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-base="{{ site.baseurl }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% elsif page.name %}{{ page.name }}{% if page.state %}, {{ page.state }}{% endif %} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="{{ '/assets/css/communities.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <script>window.STATE_NAMES = {{ site.data.states | jsonify }}; window.RABBIS_SITE = {{ site.rabbis_site | jsonify }};</script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+  <script src="{{ '/assets/js/communities.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        {% if site.logo %}<img class="brand-logo" src="{{ site.logo | relative_url }}" alt="">{% endif %}
+        <span class="brand-text"><span class="brand-title">{{ site.title }}</span>
+        <span class="brand-tag">{{ site.tagline }}</span></span>
+      </a>
+      <div class="header-right">
+      {% include social-links.html %}
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">Map</a>
+        <a href="{{ '/communities/' | relative_url }}">Communities</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="{{ site.rabbis_site }}/">Early American Rabbis</a>
+      </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {{ content }}
+  </main>
+
+  {% include substack-signup.html %}
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-follow"><span>Follow along:</span>{% include social-links.html labels=true %}</div>
+      <p>{{ site.title }}, a project of {{ site.machon_name }} <span class="he">מכון ארצות הברית הקדמון</span> · <a href="{{ '/' | relative_url }}">Map</a> · <a href="{{ '/communities/' | relative_url }}">Communities</a> · <a href="{{ site.rabbis_site }}/">Early American Rabbis</a></p>
+    </div>
+  </footer>
+</body>
+</html>

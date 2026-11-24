@@ -1,0 +1,65 @@
+# ------------------------------------------------------------
+#  Early American Communities — site settings
+#  You rarely need to touch this file.
+#  IMPORTANT: "baseurl" must match the name of your GitHub repository.
+#  If your repository is github.com/earlyamericanrabbis/early-american-communities
+#  then baseurl is "/early-american-communities".
+# ------------------------------------------------------------
+
+title: Early American Communities
+tagline: The kehillos where Torah life took root in America
+description: >-
+  The towns and cities of early American Jewry: the rabbanim who served them,
+  their shuls, mikvaos and chinuch, and the news and events of their day.
+logo:                     # e.g. /assets/uploads/logo.png (leave blank for no logo)
+baseurl: "/early-american-communities"
+url: ""
+
+# The Early American Rabbis site. Each community page lists, automatically,
+# every rabbi there whose "Communities served" includes this city
+# (written the same way, e.g. "South Bend, IN").
+rabbis_site: https://earlyamericanrabbis.github.io/early-american-seforim
+machon_name: Machon Artzos HaBris HaKadmon
+
+# Social media (shown in the header, footer and sign-up bar)
+substack: https://earlyamericanrabbis.substack.com
+social:
+  - name: Substack
+    icon: substack
+    url: https://earlyamericanrabbis.substack.com
+  - name: Instagram
+    icon: instagram
+    url: https://www.instagram.com/earlyamericanrabbis
+  - name: X
+    icon: x
+    url: https://x.com/EarlyUSRabbis
+  - name: Facebook
+    icon: facebook
+    url: https://www.facebook.com/share/19thnakYtH/
+  - name: WhatsApp group
+    icon: whatsapp
+    url: https://chat.whatsapp.com/J9a9XyoUcAzEDhr5dFN88J
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+collections:
+  communities:
+    output: true
+    permalink: /communities/:name/
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }
+  - scope: { path: "", type: communities }
+    values: { layout: community }
+
+exclude:
+  - README.md
+  - HOW-TO-ADD-CONTENT.md
+  - templates
+  - Gemfile
+  - Gemfile.lock
+  - vendor

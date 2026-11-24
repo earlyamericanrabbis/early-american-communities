@@ -1,0 +1,46 @@
+---
+title: Home
+---
+{%- assign cs = site.communities | sort: "name" -%}
+{%- assign n_c = cs | size -%}
+{%- assign n_shuls = 0 -%}{%- assign n_news = 0 -%}{%- assign n_r = 0 -%}
+{%- for c in cs -%}{%- assign n_shuls = n_shuls | plus: c.shuls.size -%}{%- assign n_news = n_news | plus: c.news.size -%}{%- assign n_r = n_r | plus: c.rabbanim.size -%}{%- endfor -%}
+
+<section class="hero">
+  <p class="dedication"><span class="ded-part">The Early American Project is</span> <span class="ded-part he" dir="rtl" lang="he">לע״נ ארי דוד בן יצחק אהרן בלאק ע״ה</span><span class="ded-comma">,</span> <span class="ded-part">Reb Ari Dovid Block <span class="he" dir="rtl" lang="he">ע״ה</span></span></p>
+  <h1>{{ site.title }}</h1>
+  <p class="lede">{{ site.description }}</p>
+  <p class="c-stats"><span><b>{{ n_c }}</b> communit{% if n_c == 1 %}y{% else %}ies{% endif %}</span><span><b>{{ n_shuls }}</b> shul{% if n_shuls != 1 %}s{% endif %}</span><span><b>{{ n_news }}</b> news &amp; events</span></p>
+</section>
+
+<section class="atlas" id="atlas">
+  <div class="atlas-map">
+    <div class="map-frame" id="home-map">
+      {% include us-map.svg %}
+      <div class="zoomctl"><button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">−</button><button type="button" data-z="reset" aria-label="Show the whole country">⟲</button></div>
+      <div class="map-tip" hidden></div>
+    </div>
+    <p class="meta map-help">Click a city to open it. Scroll or pinch to zoom; drag to move.</p>
+  </div>
+  <aside class="ledger">
+    <h2>Communities</h2>
+    <input id="cq" class="filter" type="search" placeholder="Search a city or state…" aria-label="Search communities">
+    <ul id="clist" class="c-list">
+      {% for c in cs %}
+      <li data-id="{{ c.slug }}" data-hay="{{ c.name | downcase }} {{ c.state | downcase }} {{ site.data.states[c.state] | downcase }} {{ c.hebrew_name }}"><a href="{{ c.url | relative_url }}"><strong>{{ c.name }}</strong>{% if c.hebrew_name %} <span class="he">{{ c.hebrew_name }}</span>{% endif %}<span class="meta">{{ site.data.states[c.state] | default: c.state }}{% if c.era %} · {{ c.era }}{% endif %}</span></a></li>
+      {% endfor %}
+    </ul>
+    {% if n_c == 0 %}<p class="empty">No communities have been added yet.</p>{% endif %}
+    <p class="empty" id="cnone" hidden>No community matches that search.</p>
+  </aside>
+</section>
+
+<script>
+window.COMMUNITIES = [
+{%- for c in cs -%}
+  {"id": {{ c.slug | jsonify }}, "name": {{ c.name | jsonify }}, "state": {{ c.state | jsonify }}, "url": {{ c.url | relative_url | jsonify }},
+   "lat": {{ c.lat | default: "null" }}, "lon": {{ c.lon | default: "null" }}, "era": {{ c.era | jsonify }},
+   "counts": {"rabbanim": {{ c.rabbanim.size | default: 0 }}, "shuls": {{ c.shuls.size | default: 0 }}, "mikvaos": {{ c.mikvaos.size | default: 0 }}, "chinuch": {{ c.chinuch.size | default: 0 }}, "news": {{ c.news.size | default: 0 }}}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+];
+</script>

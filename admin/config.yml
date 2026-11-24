@@ -1,0 +1,181 @@
+# Editor settings for /admin (Sveltia CMS). Field names must match the site's page fields.
+backend:
+  name: github
+  repo: earlyamericanrabbis/early-american-communities
+  branch: main
+site_url: https://earlyamericanrabbis.github.io/early-american-communities
+display_url: https://earlyamericanrabbis.github.io/early-american-communities
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+- name: communities
+  label: Communities
+  label_singular: Community
+  folder: _communities
+  create: true
+  extension: md
+  format: frontmatter
+  slug: '{{name}}-{{state}}'
+  identifier_field: name
+  summary: '{{name}}, {{state}}'
+  sortable_fields: [name, state]
+  view_groups:
+  - { label: State, field: state }
+  fields:
+  - name: name
+    label: City name
+    widget: string
+    hint: e.g. South Bend
+  - name: state
+    label: State
+    widget: select
+    options: [AL, AK, AZ, AR, CA, CO, CT, DC, DE, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY]
+  - name: hebrew_name
+    label: Hebrew name
+    widget: string
+    required: false
+  - name: lat
+    label: Latitude
+    widget: number
+    value_type: float
+    hint: "Puts the city on the map. Find it on Google Maps: right-click the city, and the first number shown is the latitude (e.g. 41.6764)."
+  - name: lon
+    label: Longitude
+    widget: number
+    value_type: float
+    hint: The second number from Google Maps (e.g. -86.2520). Cities in the U.S. are negative.
+  - name: era
+    label: Years of the community
+    widget: string
+    required: false
+    hint: e.g. 1870s–1960s
+  - name: cover
+    label: Cover photo
+    widget: image
+    required: false
+  - name: cover_caption
+    label: Cover photo caption
+    widget: string
+    required: false
+  - name: published
+    label: Show on the site
+    widget: boolean
+    default: true
+    hint: Turn off to keep a community as a draft.
+  - name: body
+    label: Introduction
+    widget: markdown
+    required: false
+
+  - name: rabbanim
+    label: Rabbanim That Served Here
+    label_singular: Rav
+    widget: list
+    required: false
+    summary: '{{fields.name}} {{fields.years}}'
+    hint: Rabbis already on the Early American Rabbis site whose "Communities served" includes this city are listed automatically; add others here.
+    fields:
+    - { name: name, label: Name, widget: string }
+    - { name: hebrew_name, label: Hebrew name, widget: string, required: false }
+    - { name: position, label: Position, widget: string, required: false, hint: "e.g. Rav of Congregation Sons of Israel" }
+    - { name: years, label: Years served here, widget: string, required: false }
+    - { name: link, label: Link, widget: string, required: false, hint: "e.g. his page on Early American Rabbis" }
+    - { name: notes, label: Notes, widget: text, required: false }
+    - &photos
+      name: images
+      label: Photos
+      label_singular: Photo
+      widget: list
+      required: false
+      hint: The first photo is the main one. Drag to reorder.
+      fields:
+      - { name: image, label: Photo, widget: image }
+      - { name: caption, label: Caption, widget: string, required: false }
+
+  - name: shuls
+    label: Shuls
+    label_singular: Shul
+    widget: list
+    required: false
+    summary: '{{fields.name}} {{fields.years}}'
+    fields:
+    - { name: name, label: Name of shul, widget: string }
+    - { name: hebrew_name, label: Hebrew name, widget: string, required: false }
+    - { name: also_known_as, label: Also known as / nusach, widget: string, required: false }
+    - { name: years, label: Years active, widget: string, required: false }
+    - { name: address, label: Address or location, widget: string, required: false }
+    - &notes
+      name: notes
+      label: History / notes
+      widget: markdown
+      required: false
+    - *photos
+    - &documents
+      name: documents
+      label: Documents (clippings, PDFs, scans)
+      label_singular: Document
+      widget: list
+      required: false
+      fields:
+      - { name: title, label: Title, widget: string, hint: "e.g. South Bend Tribune, March 4, 1912" }
+      - { name: file, label: File, widget: file }
+    - { name: link, label: Link, widget: string, required: false }
+
+  - name: mikvaos
+    label: Mikvaos
+    label_singular: Mikvah
+    widget: list
+    required: false
+    summary: '{{fields.name}} {{fields.years}}'
+    fields:
+    - { name: name, label: Name or location, widget: string }
+    - { name: years, label: Years in use, widget: string, required: false }
+    - { name: address, label: Address, widget: string, required: false }
+    - *notes
+    - *photos
+    - *documents
+    - { name: link, label: Link, widget: string, required: false }
+
+  - name: chinuch
+    label: Chinuch
+    label_singular: School
+    widget: list
+    required: false
+    summary: '{{fields.name}} {{fields.years}}'
+    fields:
+    - { name: name, label: Name of school or Talmud Torah, widget: string }
+    - { name: hebrew_name, label: Hebrew name, widget: string, required: false }
+    - { name: type, label: Type, widget: string, required: false, hint: "e.g. Cheder, Talmud Torah, Day school, Yeshiva" }
+    - { name: years, label: Years open, widget: string, required: false }
+    - { name: address, label: Address, widget: string, required: false }
+    - *notes
+    - *photos
+    - *documents
+    - { name: link, label: Link, widget: string, required: false }
+
+  - name: news
+    label: Interesting News & Events
+    label_singular: News item
+    widget: list
+    required: false
+    summary: '{{fields.date}} — {{fields.headline}}'
+    hint: Put them in date order; drag to reorder.
+    fields:
+    - { name: headline, label: Headline, widget: string }
+    - { name: date, label: Date, widget: string, required: false, hint: "e.g. March 4, 1912" }
+    - { name: source, label: Source, widget: string, required: false, hint: "Newspaper, archive or book" }
+    - { name: story, label: Story, widget: markdown, required: false }
+    - *photos
+    - *documents
+    - { name: link, label: Link to the original, widget: string, required: false }
+
+  - name: rabbi_places
+    label: Other spellings for matching rabbis (optional)
+    widget: list
+    required: false
+    hint: 'Rabbis on Early American Rabbis are matched by "City, ST" (e.g. "South Bend, IN"). Add other spellings used there, e.g. "Mishawaka, IN".'
+  - name: sources
+    label: Sources
+    widget: list
+    required: false

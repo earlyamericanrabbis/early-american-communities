@@ -1,0 +1,26 @@
+---
+title: Communities
+permalink: /communities/
+---
+{%- assign cs = site.communities | sort: "name" -%}
+{%- assign groups = cs | group_by: "state" | sort: "name" -%}
+<h1>The Communities</h1>
+<p class="lede">Every community on the map, by state.</p>
+<input id="cq2" class="filter" type="search" placeholder="Search a city or state…" aria-label="Search communities">
+{% for g in groups %}
+<section class="state-group" data-group>
+  <h2>{{ site.data.states[g.name] | default: g.name }}</h2>
+  <div class="c-cards">
+  {% for c in g.items %}
+    {%- assign nr = c.rabbanim.size | default: 0 -%}{%- assign ns = c.shuls.size | default: 0 -%}{%- assign nn = c.news.size | default: 0 -%}
+    <a class="c-card" href="{{ c.url | relative_url }}" data-hay="{{ c.name | downcase }} {{ c.state | downcase }} {{ site.data.states[c.state] | downcase }} {{ c.hebrew_name }}">
+      {% if c.cover %}<img src="{{ c.cover | relative_url }}" alt="" loading="lazy">{% else %}<span class="c-card-blank">{{ c.name | slice: 0 }}</span>{% endif %}
+      <span class="c-card-body"><strong>{{ c.name }}</strong>{% if c.hebrew_name %}<span class="he">{{ c.hebrew_name }}</span>{% endif %}
+      <span class="meta">{% if c.era %}{{ c.era }}{% endif %}</span>
+      <span class="meta">{% if nr > 0 %}{{ nr }} rabbanim · {% endif %}{% if ns > 0 %}{{ ns }} shul{% if ns != 1 %}s{% endif %} · {% endif %}{% if nn > 0 %}{{ nn }} news{% endif %}</span></span>
+    </a>
+  {% endfor %}
+  </div>
+</section>
+{% endfor %}
+{% if cs.size == 0 %}<p class="empty">No communities have been added yet.</p>{% endif %}
