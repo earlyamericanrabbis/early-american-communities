@@ -12,6 +12,7 @@ rabbanim: []
 shuls: []
 mikvaos: []
 chinuch: []
+cemeteries: []
 news: []
 rabbi_places:
   - Beth Hamedrash Hagadol (St. Louis)

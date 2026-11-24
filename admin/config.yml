@@ -156,6 +156,23 @@ collections:
     - *documents
     - { name: link, label: Link, widget: string, required: false }
 
+  - name: cemeteries
+    label: Cemeteries
+    label_singular: Cemetery
+    widget: list
+    required: false
+    summary: '{{fields.name}} {{fields.years}}'
+    fields:
+    - { name: name, label: Name of cemetery, widget: string }
+    - { name: hebrew_name, label: Hebrew name, widget: string, required: false }
+    - { name: also_known_as, label: Also known as / chevra or congregation, widget: string, required: false }
+    - { name: years, label: Years in use, widget: string, required: false, hint: "e.g. founded 1884" }
+    - { name: address, label: Address or location, widget: string, required: false }
+    - *notes
+    - *photos
+    - *documents
+    - { name: link, label: Link, widget: string, required: false, hint: "e.g. its Find a Grave page" }
+
   - name: news
     label: Interesting News & Events
     label_singular: News item

@@ -20,9 +20,9 @@ You never need a terminal or any programming. Everything is done in your web bro
 
 To keep a city off the site while you work on it, turn off **Show on the site**.
 
-### Adding rabbanim, shuls, mikvaos, chinuch and news
+### Adding rabbanim, shuls, mikvaos, chinuch, cemeteries and news
 
-Each city's form has five lists. Click **Add** under any of them:
+Each city's form has six lists. Click **Add** under any of them:
 
 | Section | What to fill in |
 |---|---|
@@ -30,6 +30,7 @@ Each city's form has five lists. Click **Add** under any of them:
 | **Shuls** | Name, Hebrew name, also known as / nusach, years, address, history, photos, documents |
 | **Mikvaos** | Name or location, years, address, history, photos, documents |
 | **Chinuch** | Name, Hebrew name, type (cheder, Talmud Torah, day school, yeshiva), years, address, history, photos, documents |
+| **Cemeteries** | Name, Hebrew name, also known as / chevra or congregation, years in use, address, history, photos, documents, link |
 | **Interesting News & Events** | Headline, date, source, story, photos, documents, link |
 
 - **Photos**: click **Add Photo**, upload the picture, and write a caption. The first photo is the main one; drag to reorder.

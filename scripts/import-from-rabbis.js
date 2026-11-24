@@ -173,7 +173,7 @@ async function main() {
       lat: hit ? hit.lat : null,
       lon: hit ? hit.lon : null,
       era: null, cover: null, cover_caption: null, published: true,
-      rabbanim: [], shuls: [], mikvaos: [], chinuch: [], news: [],
+      rabbanim: [], shuls: [], mikvaos: [], chinuch: [], cemeteries: [], news: [],
       rabbi_places: extra, sources: []
     };
     let file = slug(`${city}-${st}`) + '.md', n = 2;

@@ -1,11 +1,11 @@
 # Early American Communities
 
-The towns and cities of early American Jewry — the rabbanim who served them, their shuls, mikvaos and chinuch, and the news and events of their day. A project of **Machon Artzos HaBris HaKadmon**, alongside [Early American Rabbis](https://earlyamericanrabbis.github.io/early-american-seforim/).
+The towns and cities of early American Jewry — the rabbanim who served them, their shuls, mikvaos, chinuch and cemeteries, and the news and events of their day. A project of **Machon Artzos HaBris HaKadmon**, alongside [Early American Rabbis](https://earlyamericanrabbis.github.io/early-american-seforim/).
 
 **See it online: https://earlyamericanrabbis.github.io/early-american-communities/**
 
 - **The map**: every community is a pin on a map of the United States. Click a pin to open the community.
-- **Each community** has its own page: introduction, cover photo, and five sections — Rabbanim That Served Here, Shuls, Mikvaos, Chinuch, and Interesting News & Events — with photos and documents.
+- **Each community** has its own page: introduction, cover photo, and six sections — Rabbanim That Served Here, Shuls, Mikvaos, Chinuch, Cemeteries, and Interesting News & Events — with photos and documents.
 - **Rabbanim link up automatically**: every rabbi on the Early American Rabbis site whose "Communities served" includes the city (e.g. `South Bend, IN`) appears on that city's page.
 
 ## Adding to the site

@@ -94,6 +94,7 @@
     if (n.shuls) parts.push(n.shuls + (n.shuls === 1 ? ' shul' : ' shuls'));
     if (n.mikvaos) parts.push(n.mikvaos + (n.mikvaos === 1 ? ' mikvah' : ' mikvaos'));
     if (n.chinuch) parts.push(n.chinuch + ' chinuch');
+    if (n.cemeteries) parts.push(n.cemeteries + (n.cemeteries === 1 ? ' cemetery' : ' cemeteries'));
     if (n.news) parts.push(n.news + ' news');
     return parts.join(' · ') || 'Entries coming soon';
   }
@@ -109,7 +110,7 @@
       onHover: function (id) { items.forEach(function (li) { li.classList.toggle('hot', li.getAttribute('data-id') === id); }); }
     });
     if (map) {
-      map.setPins(list.map(function (c) { var n = c.counts; return { id: c.id, name: c.name, state: c.state, era: c.era, lat: c.lat, lon: c.lon, url: c.url, counts: n, weight: n.rabbanim + n.shuls + n.mikvaos + n.chinuch + n.news }; }));
+      map.setPins(list.map(function (c) { var n = c.counts; return { id: c.id, name: c.name, state: c.state, era: c.era, lat: c.lat, lon: c.lon, url: c.url, counts: n, weight: n.rabbanim + n.shuls + n.mikvaos + n.chinuch + (n.cemeteries || 0) + n.news }; }));
       items.forEach(function (li) { li.addEventListener('mouseenter', function () { map.highlight(li.getAttribute('data-id')); }); li.addEventListener('mouseleave', function () { map.highlight(null); }); });
     }
     filter(document.getElementById('cq'), items, document.getElementById('cnone'));

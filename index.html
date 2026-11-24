@@ -40,7 +40,7 @@ window.COMMUNITIES = [
 {%- for c in cs -%}
   {"id": {{ c.slug | jsonify }}, "name": {{ c.name | jsonify }}, "state": {{ c.state | jsonify }}, "url": {{ c.url | relative_url | jsonify }},
    "lat": {{ c.lat | default: "null" }}, "lon": {{ c.lon | default: "null" }}, "era": {{ c.era | jsonify }},
-   "counts": {"rabbanim": {{ c.rabbanim.size | default: 0 }}, "shuls": {{ c.shuls.size | default: 0 }}, "mikvaos": {{ c.mikvaos.size | default: 0 }}, "chinuch": {{ c.chinuch.size | default: 0 }}, "news": {{ c.news.size | default: 0 }}}}{% unless forloop.last %},{% endunless %}
+   "counts": {"rabbanim": {{ c.rabbanim.size | default: 0 }}, "shuls": {{ c.shuls.size | default: 0 }}, "mikvaos": {{ c.mikvaos.size | default: 0 }}, "chinuch": {{ c.chinuch.size | default: 0 }}, "cemeteries": {{ c.cemeteries.size | default: 0 }}, "news": {{ c.news.size | default: 0 }}}}{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ];
 </script>

@@ -56,6 +56,17 @@ chinuch:
     images: []
     documents: []
 
+cemeteries:
+  - name: "Hebrew Orthodox Cemetery"
+    hebrew_name:
+    also_known_as: "Chevra Kadisha of Congregation ..."
+    years: "founded 1884"
+    address:
+    notes:
+    images: []
+    documents: []
+    link:
+
 news:
   - headline: "New shul dedicated"
     date: "March 4, 1912"

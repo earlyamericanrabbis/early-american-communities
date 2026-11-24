@@ -21,7 +21,7 @@ layout: default
 </div>
 
 <nav class="c-secnav" aria-label="Sections">
-  <a href="#rabbanim">Rabbanim That Served Here</a><a href="#shuls">Shuls <b>{{ page.shuls.size | default: 0 }}</b></a><a href="#mikvaos">Mikvaos <b>{{ page.mikvaos.size | default: 0 }}</b></a><a href="#chinuch">Chinuch <b>{{ page.chinuch.size | default: 0 }}</b></a><a href="#news">Interesting News &amp; Events <b>{{ page.news.size | default: 0 }}</b></a>
+  <a href="#rabbanim">Rabbanim That Served Here</a><a href="#shuls">Shuls <b>{{ page.shuls.size | default: 0 }}</b></a><a href="#mikvaos">Mikvaos <b>{{ page.mikvaos.size | default: 0 }}</b></a><a href="#chinuch">Chinuch <b>{{ page.chinuch.size | default: 0 }}</b></a><a href="#cemeteries">Cemeteries <b>{{ page.cemeteries.size | default: 0 }}</b></a><a href="#news">Interesting News &amp; Events <b>{{ page.news.size | default: 0 }}</b></a>
 </nav>
 
 <section class="c-section" id="rabbanim">
@@ -53,6 +53,11 @@ layout: default
 <section class="c-section" id="chinuch">
   <h2>Chinuch</h2>
   {% if page.chinuch.size > 0 %}<div class="entries">{% for e in page.chinuch %}{% include entry.html e=e %}{% endfor %}</div>{% else %}<p class="empty">Nothing has been added here yet.</p>{% endif %}
+</section>
+
+<section class="c-section" id="cemeteries">
+  <h2>Cemeteries</h2>
+  {% if page.cemeteries.size > 0 %}<div class="entries">{% for e in page.cemeteries %}{% include entry.html e=e %}{% endfor %}</div>{% else %}<p class="empty">Nothing has been added here yet.</p>{% endif %}
 </section>
 
 <section class="c-section" id="news">
