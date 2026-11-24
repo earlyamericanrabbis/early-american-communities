@@ -27,7 +27,7 @@ title: Home
     <input id="cq" class="filter" type="search" placeholder="Search a city or state…" aria-label="Search communities">
     <ul id="clist" class="c-list">
       {% for c in cs %}
-      <li data-id="{{ c.slug }}" data-hay="{{ c.name | downcase }} {{ c.state | downcase }} {{ site.data.states[c.state] | downcase }} {{ c.hebrew_name }}"><a href="{{ c.url | relative_url }}"><strong>{{ c.name }}</strong>{% if c.hebrew_name %} <span class="he">{{ c.hebrew_name }}</span>{% endif %}<span class="meta">{{ site.data.states[c.state] | default: c.state }}{% if c.era %} · {{ c.era }}{% endif %}</span></a></li>
+      <li data-id="{{ c.slug }}" data-hay="{{ c.name | downcase }} {{ c.state | downcase }} {{ site.data.states[c.state] | downcase }} {{ c.hebrew_name }}"><a href="{{ c.url | relative_url }}"><strong>{{ c.name }}</strong>{% if c.hebrew_name and c.hebrew_name != "" %} <span class="he">{{ c.hebrew_name }}</span>{% endif %}<span class="meta">{{ site.data.states[c.state] | default: c.state }}{% if c.era and c.era != "" %} · {{ c.era }}{% endif %}</span></a></li>
       {% endfor %}
     </ul>
     {% if n_c == 0 %}<p class="empty">No communities have been added yet.</p>{% endif %}

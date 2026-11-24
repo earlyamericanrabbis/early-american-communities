@@ -14,9 +14,9 @@ permalink: /communities/
   {% for c in g.items %}
     {%- assign nr = c.rabbanim.size | default: 0 -%}{%- assign ns = c.shuls.size | default: 0 -%}{%- assign nn = c.news.size | default: 0 -%}
     <a class="c-card" href="{{ c.url | relative_url }}" data-hay="{{ c.name | downcase }} {{ c.state | downcase }} {{ site.data.states[c.state] | downcase }} {{ c.hebrew_name }}">
-      {% if c.cover %}<img src="{{ c.cover | relative_url }}" alt="" loading="lazy">{% else %}<span class="c-card-blank">{{ c.name | slice: 0 }}</span>{% endif %}
-      <span class="c-card-body"><strong>{{ c.name }}</strong>{% if c.hebrew_name %}<span class="he">{{ c.hebrew_name }}</span>{% endif %}
-      <span class="meta">{% if c.era %}{{ c.era }}{% endif %}</span>
+      {% if c.cover and c.cover != "" %}<img src="{{ c.cover | relative_url }}" alt="" loading="lazy">{% else %}<span class="c-card-blank">{{ c.name | slice: 0 }}</span>{% endif %}
+      <span class="c-card-body"><strong>{{ c.name }}</strong>{% if c.hebrew_name and c.hebrew_name != "" %}<span class="he">{{ c.hebrew_name }}</span>{% endif %}
+      <span class="meta">{% if c.era and c.era != "" %}{{ c.era }}{% endif %}</span>
       <span class="meta">{% if nr > 0 %}{{ nr }} rabbanim · {% endif %}{% if ns > 0 %}{{ ns }} shul{% if ns != 1 %}s{% endif %} · {% endif %}{% if nn > 0 %}{{ nn }} news{% endif %}</span></span>
     </a>
   {% endfor %}

@@ -46,3 +46,9 @@ You don't need to retype rabbis who are already on the Early American Rabbis sit
 ## The other way: editing files on github.com
 
 Each city is one text file in the `_communities/` folder (e.g. `south-bend-in.md`). The `templates/community.md` file is a filled-in example of every field: copy it into a new file in `_communities/`, change the details, and click **Commit changes**. Photos and documents go in `assets/uploads/`.
+
+## Cities brought in from Early American Rabbis
+
+Every city named in a rabbi's **Communities served** on Early American Rabbis has been added here as a community, already placed on the map, with those rabbanim listed on its page. As you add rabbis there, ask Claude to run the import again (`scripts/import-from-rabbis.js`). It only adds new cities and never changes a community you've already filled in.
+
+**The report.** Each import writes `scripts/import-report.md`. It lists every "Communities served" line it couldn't turn into a city: a shul name ("Anshei Tiktin"), an organization ("Agudath HaRabbonim"), a city with no state ("Springfield"), or several cities in one line ("Chicago, Detroit, NY"). To fix one, change it on the rabbi's page on Early American Rabbis to one city per line, written like `Springfield, MA`. Or add it under **Other spellings for matching rabbis** on the right community here.

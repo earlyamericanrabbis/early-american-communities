@@ -7,6 +7,8 @@ site_url: https://earlyamericanrabbis.github.io/early-american-communities
 display_url: https://earlyamericanrabbis.github.io/early-american-communities
 media_folder: assets/uploads
 public_folder: /assets/uploads
+output:
+  omit_empty_optional_fields: true
 
 collections:
 - name: communities

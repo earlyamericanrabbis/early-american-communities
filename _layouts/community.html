@@ -8,13 +8,13 @@ layout: default
 <div class="c-head">
   <div class="c-id">
     <h1>{{ page.name }}</h1>
-    {% if page.hebrew_name %}<p class="he big">{{ page.hebrew_name }}</p>{% endif %}
-    <p class="rv-years">{{ state_name }}{% if page.era %} · {{ page.era }}{% endif %}</p>
+    {% if page.hebrew_name and page.hebrew_name != "" %}<p class="he big">{{ page.hebrew_name }}</p>{% endif %}
+    <p class="rv-years">{{ state_name }}{% if page.era and page.era != "" %} · {{ page.era }}{% endif %}</p>
     {% if content != "" %}<div class="prose c-intro">{{ content }}</div>{% endif %}
   </div>
   <div class="c-side">
-    {% if page.cover %}
-    <figure class="c-cover"><a class="lb" href="{{ page.cover | relative_url }}" data-caption="{{ page.cover_caption | default: page.name | escape }}"><img src="{{ page.cover | relative_url }}" alt="{{ page.cover_caption | default: page.name | escape }}"></a>{% if page.cover_caption %}<figcaption>{{ page.cover_caption }}</figcaption>{% endif %}</figure>
+    {% if page.cover and page.cover != "" %}
+    <figure class="c-cover"><a class="lb" href="{{ page.cover | relative_url }}" data-caption="{{ page.cover_caption | default: page.name | escape }}"><img src="{{ page.cover | relative_url }}" alt="{{ page.cover_caption | default: page.name | escape }}"></a>{% if page.cover_caption and page.cover_caption != "" %}<figcaption>{{ page.cover_caption }}</figcaption>{% endif %}</figure>
     {% endif %}
     {% if page.lat and page.lon %}<div class="map-frame locator" data-lat="{{ page.lat }}" data-lon="{{ page.lon }}" data-name="{{ page.name | escape }}">{% include us-map.svg %}</div>{% endif %}
   </div>
@@ -29,12 +29,12 @@ layout: default
   <div class="rabbi-grid" id="rabbanim-grid" data-places="{{ places | escape }}">
     {% for r in page.rabbanim %}
     {%- assign img = r.images | first -%}
-    {%- if r.link -%}<a class="rabbi-tile" href="{{ r.link }}" data-name="{{ r.name | escape }}">{%- else -%}<div class="rabbi-tile" data-name="{{ r.name | escape }}">{%- endif -%}
-      <img src="{% if img.image %}{{ img.image | relative_url }}{% else %}{{ '/assets/images/portrait-placeholder.svg' | relative_url }}{% endif %}" alt="" loading="lazy">
-      <span class="rt-body"><strong>{{ r.name }}</strong>{% if r.hebrew_name %}<span class="he">{{ r.hebrew_name }}</span>{% endif %}
-      {% if r.position %}<span class="meta">{{ r.position }}</span>{% endif %}{% if r.years %}<span class="dates">{{ r.years }}</span>{% endif %}
-      {% if r.notes %}<span class="meta rt-notes">{{ r.notes | strip_html | truncatewords: 30 }}</span>{% endif %}</span>
-    {%- if r.link -%}</a>{%- else -%}</div>{%- endif -%}
+    {%- if r.link and r.link != "" -%}<a class="rabbi-tile" href="{{ r.link }}" data-name="{{ r.name | escape }}">{%- else -%}<div class="rabbi-tile" data-name="{{ r.name | escape }}">{%- endif -%}
+      <img src="{% if img.image and img.image != "" %}{{ img.image | relative_url }}{% else %}{{ '/assets/images/portrait-placeholder.svg' | relative_url }}{% endif %}" alt="" loading="lazy">
+      <span class="rt-body"><strong>{{ r.name }}</strong>{% if r.hebrew_name and r.hebrew_name != "" %}<span class="he">{{ r.hebrew_name }}</span>{% endif %}
+      {% if r.position and r.position != "" %}<span class="meta">{{ r.position }}</span>{% endif %}{% if r.years and r.years != "" %}<span class="dates">{{ r.years }}</span>{% endif %}
+      {% if r.notes and r.notes != "" %}<span class="meta rt-notes">{{ r.notes | strip_html | truncatewords: 30 }}</span>{% endif %}</span>
+    {%- if r.link and r.link != "" -%}</a>{%- else -%}</div>{%- endif -%}
     {% endfor %}
   </div>
   <p class="empty" id="rabbanim-empty"{% if page.rabbanim.size > 0 %} hidden{% endif %}>Loading the rabbanim…</p>
@@ -65,9 +65,9 @@ layout: default
       <div class="news-date">{{ n.date }}</div>
       <div class="news-body">
         <h3>{{ n.headline }}</h3>
-        {% if n.source %}<p class="meta news-src">{{ n.source }}</p>{% endif %}
-        {% if first.image %}<a class="lb news-photo" href="{{ first.image | relative_url }}" data-caption="{{ first.caption | default: n.headline | escape }}"><img src="{{ first.image | relative_url }}" alt="{{ first.caption | default: n.headline | escape }}" loading="lazy"></a>{% endif %}
-        {% if n.story %}<div class="entry-notes">{{ n.story | markdownify }}</div>{% endif %}
+        {% if n.source and n.source != "" %}<p class="meta news-src">{{ n.source }}</p>{% endif %}
+        {% if first.image and first.image != "" %}<a class="lb news-photo" href="{{ first.image | relative_url }}" data-caption="{{ first.caption | default: n.headline | escape }}"><img src="{{ first.image | relative_url }}" alt="{{ first.caption | default: n.headline | escape }}" loading="lazy"></a>{% endif %}
+        {% if n.story and n.story != "" %}<div class="entry-notes">{{ n.story | markdownify }}</div>{% endif %}
         {% if n.images.size > 1 %}<div class="thumbs">{% for im in n.images offset: 1 %}<a class="lb" href="{{ im.image | relative_url }}" data-caption="{{ im.caption | default: n.headline | escape }}"><img src="{{ im.image | relative_url }}" alt="{{ im.caption | escape }}" loading="lazy"></a>{% endfor %}</div>{% endif %}
         {% include docs.html list=n.documents link=n.link %}
       </div>

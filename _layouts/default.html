@@ -18,7 +18,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="{{ '/' | relative_url }}">
-        {% if site.logo %}<img class="brand-logo" src="{{ site.logo | relative_url }}" alt="">{% endif %}
+        {% if site.logo and site.logo != "" %}<img class="brand-logo" src="{{ site.logo | relative_url }}" alt="">{% endif %}
         <span class="brand-text"><span class="brand-title">{{ site.title }}</span>
         <span class="brand-tag">{{ site.tagline }}</span></span>
       </a>

@@ -2,18 +2,18 @@
 {%- assign e = include.e -%}
 {%- assign first = e.images | first -%}
 <article class="entry">
-  {% if first.image %}<a class="entry-photo lb" href="{{ first.image | relative_url }}" data-caption="{{ first.caption | default: e.name | escape }}"><img src="{{ first.image | relative_url }}" alt="{{ first.caption | default: e.name | escape }}" loading="lazy"></a>{% endif %}
+  {% if first.image and first.image != "" %}<a class="entry-photo lb" href="{{ first.image | relative_url }}" data-caption="{{ first.caption | default: e.name | escape }}"><img src="{{ first.image | relative_url }}" alt="{{ first.caption | default: e.name | escape }}" loading="lazy"></a>{% endif %}
   <div class="entry-body">
     <h3>{{ e.name }}</h3>
-    {% if e.hebrew_name %}<p class="he entry-he">{{ e.hebrew_name }}</p>{% endif %}
+    {% if e.hebrew_name and e.hebrew_name != "" %}<p class="he entry-he">{{ e.hebrew_name }}</p>{% endif %}
     {%- assign parts = "" | split: "" -%}
-    {%- if e.type -%}{%- capture x -%}<b>{{ e.type }}</b>{%- endcapture -%}{%- assign parts = parts | push: x -%}{%- endif -%}
-    {%- if e.also_known_as -%}{%- capture x -%}Also known as {{ e.also_known_as }}{%- endcapture -%}{%- assign parts = parts | push: x -%}{%- endif -%}
-    {%- if e.years -%}{%- assign parts = parts | push: e.years -%}{%- endif -%}
-    {%- if e.address -%}{%- assign parts = parts | push: e.address -%}{%- endif -%}
+    {%- if e.type and e.type != "" -%}{%- capture x -%}<b>{{ e.type }}</b>{%- endcapture -%}{%- assign parts = parts | push: x -%}{%- endif -%}
+    {%- if e.also_known_as and e.also_known_as != "" -%}{%- capture x -%}Also known as {{ e.also_known_as }}{%- endcapture -%}{%- assign parts = parts | push: x -%}{%- endif -%}
+    {%- if e.years and e.years != "" -%}{%- assign parts = parts | push: e.years -%}{%- endif -%}
+    {%- if e.address and e.address != "" -%}{%- assign parts = parts | push: e.address -%}{%- endif -%}
     {%- assign meta = parts | join: " · " -%}
     {% if meta != "" %}<p class="meta">{{ meta }}</p>{% endif %}
-    {% if e.notes %}<div class="entry-notes">{{ e.notes | markdownify }}</div>{% endif %}
+    {% if e.notes and e.notes != "" %}<div class="entry-notes">{{ e.notes | markdownify }}</div>{% endif %}
     {% if e.images.size > 1 %}<div class="thumbs">{% for im in e.images offset: 1 %}<a class="lb" href="{{ im.image | relative_url }}" data-caption="{{ im.caption | default: e.name | escape }}"><img src="{{ im.image | relative_url }}" alt="{{ im.caption | escape }}" loading="lazy"></a>{% endfor %}</div>{% endif %}
     {% include docs.html list=e.documents link=e.link %}
   </div>

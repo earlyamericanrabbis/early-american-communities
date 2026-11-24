@@ -60,6 +60,7 @@ exclude:
   - README.md
   - HOW-TO-ADD-CONTENT.md
   - templates
+  - scripts
   - Gemfile
   - Gemfile.lock
   - vendor

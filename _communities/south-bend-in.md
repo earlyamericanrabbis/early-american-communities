@@ -1,18 +1,19 @@
 ---
 name: South Bend
 state: IN
-hebrew_name:
+hebrew_name: null
 lat: 41.6764
-lon: -86.2520
-era:
-cover:
-cover_caption:
+lon: -86.252
+era: null
+cover: null
+cover_caption: null
 published: true
 rabbanim: []
 shuls: []
 mikvaos: []
 chinuch: []
 news: []
-rabbi_places: []
+rabbi_places:
+  - South Bend
 sources: []
 ---

@@ -1,0 +1,6 @@
+{
+  "name": "eac-import",
+  "private": true,
+  "description": "Creates community pages from the cities listed on Early American Rabbis",
+  "dependencies": { "all-the-cities": "3.1.0", "js-yaml": "4.1.0" }
+}
